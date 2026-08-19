@@ -1,0 +1,13 @@
+{
+  "name": "transactions",
+  "private": true,
+  "scripts": {
+    "dev:api": "json-server --watch packages/shared/db.json --port 4000",
+    "dev:next": "pnpm --filter next-transactions dev",
+    "dev:nuxt": "pnpm --filter nuxt-transactions dev",
+    "test:shared": "pnpm --filter @transactions/shared test"
+  },
+  "devDependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}
