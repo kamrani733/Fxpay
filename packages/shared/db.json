@@ -1,0 +1,180 @@
+{
+  "transactions": [
+    {
+      "id": "txn-001",
+      "amount": 4200,
+      "type": "income",
+      "category": "Salary",
+      "description": "Monthly salary",
+      "date": "2026-08-15T09:30:00.000Z"
+    },
+    {
+      "id": "txn-002",
+      "amount": 48,
+      "type": "expense",
+      "category": "Food",
+      "description": "Coffee and breakfast",
+      "date": "2026-08-14T07:45:00.000Z"
+    },
+    {
+      "id": "txn-003",
+      "amount": 125,
+      "type": "expense",
+      "category": "Transport",
+      "description": "Train pass renewal",
+      "date": "2026-08-12T18:10:00.000Z"
+    },
+    {
+      "id": "txn-004",
+      "amount": 850,
+      "type": "income",
+      "category": "Freelance",
+      "description": "Landing page project",
+      "date": "2026-08-10T13:20:00.000Z"
+    },
+    {
+      "id": "txn-005",
+      "amount": 96,
+      "type": "expense",
+      "category": "Utilities",
+      "description": "Electricity bill",
+      "date": "2026-08-08T11:00:00.000Z"
+    },
+    {
+      "id": "txn-006",
+      "amount": 210,
+      "type": "expense",
+      "category": "Shopping",
+      "description": "Office chair",
+      "date": "2026-08-05T16:40:00.000Z"
+    },
+    {
+      "id": "txn-007",
+      "amount": 32,
+      "type": "expense",
+      "category": "Food",
+      "description": "Lunch with team",
+      "date": "2026-08-02T12:15:00.000Z"
+    },
+    {
+      "id": "txn-008",
+      "amount": 300,
+      "type": "income",
+      "category": "Investment",
+      "description": "Dividend payout",
+      "date": "2026-07-30T10:00:00.000Z"
+    },
+    {
+      "id": "txn-009",
+      "amount": 64,
+      "type": "expense",
+      "category": "Health",
+      "description": "Pharmacy refill",
+      "date": "2026-07-27T15:30:00.000Z"
+    },
+    {
+      "id": "txn-010",
+      "amount": 78,
+      "type": "expense",
+      "category": "Entertainment",
+      "description": "Cinema tickets",
+      "date": "2026-07-24T20:20:00.000Z"
+    },
+    {
+      "id": "txn-011",
+      "amount": 4200,
+      "type": "income",
+      "category": "Salary",
+      "description": "Monthly salary",
+      "date": "2026-07-15T09:30:00.000Z"
+    },
+    {
+      "id": "txn-012",
+      "amount": 185,
+      "type": "expense",
+      "category": "Utilities",
+      "description": "Internet and mobile",
+      "date": "2026-07-14T08:25:00.000Z"
+    },
+    {
+      "id": "txn-013",
+      "amount": 42,
+      "type": "expense",
+      "category": "Food",
+      "description": "Groceries",
+      "date": "2026-07-11T17:10:00.000Z"
+    },
+    {
+      "id": "txn-014",
+      "amount": 680,
+      "type": "income",
+      "category": "Freelance",
+      "description": "Dashboard audit",
+      "date": "2026-07-08T14:35:00.000Z"
+    },
+    {
+      "id": "txn-015",
+      "amount": 55,
+      "type": "expense",
+      "category": "Transport",
+      "description": "Ride share trips",
+      "date": "2026-07-05T19:15:00.000Z"
+    },
+    {
+      "id": "txn-016",
+      "amount": 240,
+      "type": "expense",
+      "category": "Shopping",
+      "description": "Summer clothes",
+      "date": "2026-06-29T16:00:00.000Z"
+    },
+    {
+      "id": "txn-017",
+      "amount": 120,
+      "type": "income",
+      "category": "Gift",
+      "description": "Birthday gift",
+      "date": "2026-06-26T12:00:00.000Z"
+    },
+    {
+      "id": "txn-018",
+      "amount": 88,
+      "type": "expense",
+      "category": "Health",
+      "description": "Dental checkup",
+      "date": "2026-06-22T09:45:00.000Z"
+    },
+    {
+      "id": "txn-019",
+      "amount": 4200,
+      "type": "income",
+      "category": "Salary",
+      "description": "Monthly salary",
+      "date": "2026-06-15T09:30:00.000Z"
+    },
+    {
+      "id": "txn-020",
+      "amount": 110,
+      "type": "expense",
+      "category": "Entertainment",
+      "description": "Concert ticket",
+      "date": "2026-06-12T21:00:00.000Z"
+    },
+    {
+      "id": "txn-021",
+      "amount": 36,
+      "type": "expense",
+      "category": "Food",
+      "description": "Weekend brunch",
+      "date": "2026-06-08T10:30:00.000Z"
+    },
+    {
+      "id": "txn-022",
+      "amount": 510,
+      "type": "income",
+      "category": "Freelance",
+      "description": "API integration fix",
+      "date": "2026-06-04T13:50:00.000Z"
+    }
+  ]
+}
