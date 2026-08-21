@@ -3,7 +3,7 @@ import { formatCurrency, formatDate, type Transaction } from '@transactions/shar
 export function TransactionList({ transactions }: { transactions: Transaction[] }) {
   return (
     <div className="max-sm:grid max-sm:gap-2.5 max-sm:p-2.5">
-      <div className="grid grid-cols-[minmax(220px,1.5fr)_140px_150px_130px] items-center gap-4 px-4 py-3 text-xs uppercase text-[#9cadbd] max-sm:hidden">
+      <div className="grid grid-cols-[minmax(220px,1.5fr)_140px_150px_130px] items-center gap-4 border-t border-[#243445] px-4 py-3 text-xs uppercase text-[#9cadbd] max-sm:hidden">
         <span>Description</span>
         <span>Category</span>
         <span>Date</span>
