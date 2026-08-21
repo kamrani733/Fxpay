@@ -18,10 +18,12 @@ type FormState = typeof initialForm;
 
 export function TransactionForm({
   onSubmit,
+  onSuccess,
   submitting,
   submitError,
 }: {
   onSubmit: (input: TransactionFormInput) => Promise<void>;
+  onSuccess?: () => void;
   submitting: boolean;
   submitError: string;
 }) {
@@ -43,6 +45,7 @@ export function TransactionForm({
     setErrors({});
     await onSubmit(result.data);
     setForm(initialForm);
+    onSuccess?.();
   }
 
   return (
@@ -52,7 +55,9 @@ export function TransactionForm({
     >
       <div>
         <p className="mb-2 text-xs font-bold uppercase text-[#7cb7ff]">New entry</p>
-        <h2 className="m-0 text-[22px] tracking-normal">Add transaction</h2>
+        <h2 id="next-add-transaction-title" className="m-0 text-[22px] tracking-normal">
+          Add transaction
+        </h2>
       </div>
 
       <label className="grid gap-[7px] text-sm text-[#9cadbd]">

@@ -9,6 +9,7 @@ const props = defineProps<{
   submitting: boolean;
   submitError: string;
   onSubmit: (input: TransactionFormInput) => Promise<void>;
+  onSuccess?: () => void;
 }>();
 
 const initialForm = {
@@ -33,17 +34,18 @@ async function handleSubmit() {
   errors.value = {};
   await props.onSubmit(result.data);
   Object.assign(form, initialForm);
+  props.onSuccess?.();
 }
 </script>
 
 <template>
   <form
-    class="sticky top-4 grid gap-3.5 border-[3px] border-[#172033] bg-white p-4 shadow-[8px_8px_0_#172033] max-[820px]:static"
+    class="grid gap-3.5 border-[3px] border-[#172033] bg-white p-4 shadow-[8px_8px_0_#172033]"
     @submit.prevent="handleSubmit"
   >
     <header>
       <span class="mb-1.5 block text-xs uppercase text-gray-500">New transaction</span>
-      <h2 class="m-0 text-[22px] tracking-normal">Write a line</h2>
+      <h2 id="nuxt-add-transaction-title" class="m-0 text-[22px] tracking-normal">Write a line</h2>
     </header>
 
     <label class="grid gap-1.5 text-[13px] uppercase text-gray-500">
