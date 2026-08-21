@@ -22,19 +22,23 @@ export function TransactionsDashboard() {
   } = useTransactions();
 
   return (
-    <main className="shell">
-      <section className="masthead">
+    <main className="mx-auto w-[calc(100%_-_32px)] max-w-[1180px] py-8 max-sm:w-[calc(100%_-_20px)] max-sm:py-5">
+      <section className="flex min-h-[116px] items-end justify-between gap-4 max-[820px]:min-h-0 max-[820px]:flex-col max-[820px]:items-start">
         <div>
-          <p className="eyebrow">Next.js ledger</p>
-          <h1>Transaction Console</h1>
+          <p className="mb-2 text-xs font-bold uppercase text-[#7cb7ff]">Next.js ledger</p>
+          <h1 className="m-0 text-[clamp(36px,7vw,72px)] leading-[0.9] tracking-normal max-sm:text-[44px]">
+            Transaction Console
+          </h1>
         </div>
-        <span className="api-pill">API :4000</span>
+        <span className="whitespace-nowrap rounded-full border border-[#243445] px-3 py-2 text-[#9cadbd]">
+          Local mock data
+        </span>
       </section>
 
       <SummaryCard summary={summary} />
 
-      <section className="workspace">
-        <div className="panel list-panel">
+      <section className="grid grid-cols-[minmax(0,1fr)_340px] items-start gap-[18px] max-[820px]:grid-cols-1">
+        <div className="overflow-hidden rounded-lg border border-[#243445] bg-[#111821]/95 shadow-[0_20px_50px_rgba(0,0,0,0.22)]">
           <Filters filters={filters} onChange={setFilters} />
           {loading ? <LoadingState /> : null}
           {error && !loading ? <ErrorState message={error} onRetry={retry} /> : null}

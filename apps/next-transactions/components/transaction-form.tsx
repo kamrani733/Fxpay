@@ -3,6 +3,9 @@
 import { LoaderCircle, Plus } from 'lucide-react';
 import { useState } from 'react';
 import { transactionFormSchema, type TransactionFormInput } from '@transactions/shared';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { Select } from './ui/select';
 
 const initialForm = {
   amount: '',
@@ -43,61 +46,64 @@ export function TransactionForm({
   }
 
   return (
-    <form className="panel form-panel" onSubmit={handleSubmit}>
+    <form
+      className="grid gap-4 rounded-lg border border-[#243445] bg-[#111821]/95 p-[18px] shadow-[0_20px_50px_rgba(0,0,0,0.22)]"
+      onSubmit={handleSubmit}
+    >
       <div>
-        <p className="eyebrow">New entry</p>
-        <h2>Add transaction</h2>
+        <p className="mb-2 text-xs font-bold uppercase text-[#7cb7ff]">New entry</p>
+        <h2 className="m-0 text-[22px] tracking-normal">Add transaction</h2>
       </div>
 
-      <label>
+      <label className="grid gap-[7px] text-sm text-[#9cadbd]">
         Amount
-        <input
+        <Input
           inputMode="decimal"
           value={form.amount}
           onChange={(event) => setForm({ ...form, amount: event.target.value })}
           placeholder="120"
         />
-        {errors.amount ? <small>{errors.amount}</small> : null}
+        {errors.amount ? <small className="text-[#ff5f73]">{errors.amount}</small> : null}
       </label>
 
-      <label>
+      <label className="grid gap-[7px] text-sm text-[#9cadbd]">
         Type
-        <select
+        <Select
           value={form.type}
           onChange={(event) => setForm({ ...form, type: event.target.value as FormState['type'] })}
         >
           <option value="expense">Expense</option>
           <option value="income">Income</option>
-        </select>
-        {errors.type ? <small>{errors.type}</small> : null}
+        </Select>
+        {errors.type ? <small className="text-[#ff5f73]">{errors.type}</small> : null}
       </label>
 
-      <label>
+      <label className="grid gap-[7px] text-sm text-[#9cadbd]">
         Category
-        <input
+        <Input
           value={form.category}
           onChange={(event) => setForm({ ...form, category: event.target.value })}
           placeholder="Food"
         />
-        {errors.category ? <small>{errors.category}</small> : null}
+        {errors.category ? <small className="text-[#ff5f73]">{errors.category}</small> : null}
       </label>
 
-      <label>
+      <label className="grid gap-[7px] text-sm text-[#9cadbd]">
         Description
-        <input
+        <Input
           value={form.description}
           onChange={(event) => setForm({ ...form, description: event.target.value })}
           placeholder="Coffee with client"
         />
-        {errors.description ? <small>{errors.description}</small> : null}
+        {errors.description ? <small className="text-[#ff5f73]">{errors.description}</small> : null}
       </label>
 
-      {submitError ? <p className="submit-error">{submitError}</p> : null}
+      {submitError ? <p className="m-0 text-[#ff5f73]">{submitError}</p> : null}
 
-      <button type="submit" className="submit-button" disabled={submitting}>
-        {submitting ? <LoaderCircle className="spin" size={18} aria-hidden /> : <Plus size={18} aria-hidden />}
+      <Button type="submit" disabled={submitting}>
+        {submitting ? <LoaderCircle className="animate-spin" size={18} aria-hidden /> : <Plus size={18} aria-hidden />}
         Save transaction
-      </button>
+      </Button>
     </form>
   );
 }
