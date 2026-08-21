@@ -11,7 +11,6 @@ import {
 } from '@transactions/shared';
 import { transactions as mockTransactions } from '@transactions/shared/mock-data';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
 type TypeFilter = TransactionType | 'all';
 type Filters = { q: string; type: TypeFilter };
 
@@ -64,23 +63,8 @@ export function useTransactions() {
   const load = useCallback(async () => {
     setLoading(true);
     setError('');
-
-    if (!API_URL) {
-      setTransactions([...mockTransactions].sort((a, b) => b.date.localeCompare(a.date)));
-      setLoading(false);
-      return;
-    }
-
-    try {
-      const response = await fetch(`${API_URL}/transactions`);
-      if (!response.ok) throw new Error('Could not load transactions.');
-      const data = (await response.json()) as Transaction[];
-      setTransactions(data.sort((a, b) => b.date.localeCompare(a.date)));
-    } catch {
-      setError('Could not reach the transaction API.');
-    } finally {
-      setLoading(false);
-    }
+    setTransactions([...mockTransactions].sort((a, b) => b.date.localeCompare(a.date)));
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -107,26 +91,7 @@ export function useTransactions() {
     setSubmitting(true);
     setSubmitError('');
     setTransactions((current) => [optimistic, ...current]);
-
-    if (!API_URL) {
-      setSubmitting(false);
-      return;
-    }
-
-    try {
-      const response = await fetch(`${API_URL}/transactions`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(optimistic),
-      });
-      if (!response.ok) throw new Error('Create failed');
-    } catch {
-      setTransactions((current) => current.filter((item) => item.id !== optimistic.id));
-      setSubmitError('Transaction was not saved. Please try again.');
-      throw new Error('Transaction was not saved.');
-    } finally {
-      setSubmitting(false);
-    }
+    setSubmitting(false);
   }, []);
 
   return {

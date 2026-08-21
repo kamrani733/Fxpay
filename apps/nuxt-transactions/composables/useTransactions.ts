@@ -16,7 +16,6 @@ function readType(value: unknown): TypeFilter {
 }
 
 export function useTransactions() {
-  const apiUrl = import.meta.env.NUXT_PUBLIC_API_URL || '';
   const transactions = ref<Transaction[]>([]);
   const loading = ref(true);
   const error = ref('');
@@ -56,23 +55,8 @@ export function useTransactions() {
   async function loadTransactions() {
     loading.value = true;
     error.value = '';
-
-    if (!apiUrl) {
-      transactions.value = [...mockTransactions].sort((a, b) => b.date.localeCompare(a.date));
-      loading.value = false;
-      return;
-    }
-
-    try {
-      const response = await fetch(`${apiUrl}/transactions`);
-      if (!response.ok) throw new Error('Could not load transactions.');
-      const data = (await response.json()) as Transaction[];
-      transactions.value = data.sort((a, b) => b.date.localeCompare(a.date));
-    } catch {
-      error.value = 'Could not load transactions.';
-    } finally {
-      loading.value = false;
-    }
+    transactions.value = [...mockTransactions].sort((a, b) => b.date.localeCompare(a.date));
+    loading.value = false;
   }
 
   const filteredTransactions = computed(() => {
@@ -97,26 +81,7 @@ export function useTransactions() {
     submitting.value = true;
     submitError.value = '';
     transactions.value = [optimistic, ...transactions.value];
-
-    if (!apiUrl) {
-      submitting.value = false;
-      return;
-    }
-
-    try {
-      const response = await fetch(`${apiUrl}/transactions`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(optimistic),
-      });
-      if (!response.ok) throw new Error('Create failed');
-    } catch {
-      transactions.value = transactions.value.filter((transaction) => transaction.id !== optimistic.id);
-      submitError.value = 'Transaction was not saved. Please try again.';
-      throw new Error('Transaction was not saved.');
-    } finally {
-      submitting.value = false;
-    }
+    submitting.value = false;
   }
 
   onMounted(() => {

@@ -2,12 +2,8 @@
   "name": "transactions",
   "private": true,
   "scripts": {
-    "dev:api": "json-server --host 127.0.0.1 --port 4000 packages/shared/db.json",
     "dev:next": "pnpm --filter next-transactions dev",
     "dev:nuxt": "pnpm --filter nuxt-transactions dev",
     "test:shared": "pnpm --filter @transactions/shared test"
-  },
-  "devDependencies": {
-    "json-server": "^1.0.0-beta.3"
   }
 }

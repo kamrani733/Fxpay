@@ -9,11 +9,6 @@ export default defineNuxtConfig({
       ignore: ['**/*.ts'],
     },
   ],
-  runtimeConfig: {
-    public: {
-      apiUrl: '',
-    },
-  },
   shadcn: {
     prefix: 'Ui',
     componentDir: './components/ui',
